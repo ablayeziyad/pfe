@@ -1,0 +1,29 @@
+@import 'material-icons/iconfont/material-icons.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.example-form-field {
+    margin: 0 8px 16px 0;
+  }
+  .wrapper {
+    position: relative;
+  }
+
+.box{
+
+    border: .5px solid rgb(212, 210, 210);
+    width: 30rem;
+    height: 12rem;
+    margin-left: 1rem;
+    padding: 2rem;
+}
+.title{
+  position:absolute;
+  left: 3rem;
+  top: 1rem;
+  bottom: 1rem;
+}
+table {
+  width: 100%;
+}

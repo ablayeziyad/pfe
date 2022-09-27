@@ -1,0 +1,322 @@
+<div>
+<div class="header flex justify-between py-4 px-4">
+    
+    
+    <div class="class">
+        <div class="flex flex-col date relative">
+            <div>Class<span class="text-red-500">*</span></div>
+            <div >
+            <select (change)="getetudiant($event)"  [(ngModel)]="clas"   name="classe" class=" px-2 border px-auto " >
+                <option value="" >choisir la classe</option>
+                <option  *ngFor="let c of classe" [value]="c.nom">{{c.nom}}</option>
+                <!-- <option >choisir la classe</option>
+                <option value="1ere annee IRM">1ere annee IRM</option>
+                <option value="2eme annee IRM">2eme annee IRM</option>
+                <option value="3eme annee IRM">3eme annee IRM</option>
+                <option value="4eme annee IRM">4eme annee IRM</option> -->
+            </select>
+            <!-- <span (click)="toggleclasse()" class=" hover:text-gray-700 cursor-pointer material-icons-outlined absolute right-5  rounded-full text-gray-400 t"> keyboard_arrow_down</span>  -->
+        </div>
+        <!-- <div *ngIf="showclass" class="bg-white shadow-md p-3 text-black menu h-auto absolute top-12">
+            <ul class="ul-menu">
+                <li>1ere annee IRM</li>
+                <li>2eme annee IRM</li>
+                <li>3eme annee IRM</li>
+                <li>4eme annee IRM</li>
+                <li>5eme annee IRM</li>
+            </ul>
+
+        </div> -->
+        </div>
+    </div>
+    
+    <div class="class">
+        <div class="flex flex-col date relative">
+            <div>Section<span class="text-red-500">*</span></div>
+            <div>
+            <input disabled class=" px-2 border px-auto disabled"  type="text" value="Semestre 1 IRM">
+            <span (click)="togglesection()" class=" hover:text-gray-700 cursor-pointer material-icons-outlined absolute right-5   rounded-full text-gray-400 t"> keyboard_arrow_down</span> 
+        </div>
+        <div *ngIf="showcsection" class="bg-white shadow-md p-3 text-black menu h-auto absolute top-12">
+            <ul class="ul-menu">
+                <li>Semestre 1 IRM</li>
+                <li>Semestre 3 IRM</li>
+                <li>Semestre 4 MASI</li>
+                <li>Semestre 1 MASI</li>
+                <li>Semestre 4 IRM</li>
+            </ul>
+
+        </div>
+          
+        </div>
+    </div>
+    <div class="date"></div>
+    <div class="flex flex-col date">
+        <div>Date<span class="text-red-500">*</span></div>
+        <input disabled  class="  border px-auto disabled"  type="text" value="21-12-2023 ">
+    </div>
+    <div class="fliere">
+        <div class="flex flex-col date relative">
+            <div>Matiere<span class="text-red-500">*</span></div>
+            <div>
+            <input disabled  class=" w-80 px-2 border px-auto disabled"  type="text" value="Architecture des ordinateurs (10h-14h)">
+            <span (click)="togglematiere()" class="hover:text-gray-700 cursor-pointer material-icons-outlined absolute right-4   rounded-full text-gray-400 t"> keyboard_arrow_down</span> 
+        </div>
+        <div *ngIf="showmatiere" class="bg-white shadow-md p-3 text-black menu h-auto absolute top-12 w-80">
+            <ul class="ul-menu">
+                <li>Java</li>
+                <li>Php</li>
+                <li>Architecture des ordinateurs</li>
+                <li>Anglais</li>
+                <li>Francais</li>
+            </ul>
+
+        </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="py-10 main ">
+    <h3 class="py-10 px-4">liste des etudiants</h3>
+    <div class="flex justify-between px-4 header ">
+       
+        <button class="bg-supblue hover:bg-gray-400 text-gray-800 font-bold py-2 px-2  inline-flex items-center">
+            <svg  class="text-white  fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg>
+            <span class="  text-white text-sm">Marquer comme vacance</span>
+          </button>
+          <button class="bg-supblue hover:bg-gray-400 text-gray-800 font-bold py-2 px-2  inline-flex items-center">
+            <svg color="white" class="text-white fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg>
+            <span class=" text-sm text-white">Enregistrer la participation</span>
+          </button>
+          
+          
+    </div>
+    <div class="w-80">
+        <form class="navbar-form px-4  py-10">
+            <span class="bmd-form-group">
+              <div class="input-group no-border">
+                <input  type="text" value="" class="px-2 border bg-white rounded form-control focus:outline-none" placeholder="Search...">
+                <button  mat-raised-button type="submit" class="px-2 btn btn-white btn-round btn-just-icon">
+                  <i class="material-icons">search</i>
+                  <div class="ripple-container"></div>
+                </button>
+              </div>
+            </span>
+          </form>
+    </div>
+    <div class="presence">
+     
+<div class="overflow-x-auto relative">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr >
+                <th scope="col" class="py-3 px-6">
+                    #
+                </th>
+                <th scope="col" class="py-3 px-6">
+                    N d'inscription
+                </th>
+                <th scope="col" class="py-3 px-6">
+                    CIN/Passport
+                </th>
+                <th scope="col" class="py-3 px-6">
+                    Nom
+                </th>
+                <th scope="col" class="py-3 px-6">
+                   Presence
+                </th>
+                <th scope="col" class="py-3 px-6">
+                    remaraque
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let et of etudiantclass let i = index" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                   {{i+1}}
+                </th>
+                <td class="py-4 px-6">
+                    1000-IRM-21
+                </td>
+                <td class="py-4 px-6">
+                    18GA13605
+                </td>
+                <td class="py-4 px-6">
+                    {{et.nom}} {{et.prenom}}
+                </td>
+                <td class="flex justify-between align-center py-4 px-2">
+
+                    <span>
+                        <input class="rounded" type="checkbox" name="">
+                        Present
+                    </span>
+                    <span>
+                        <input type="checkbox" name="">
+                       En retard
+                    </span>
+                    <span>
+                        <input type="checkbox" name="">
+                        Absent
+                    </span>
+                    <span>
+                        <input type="checkbox" name="">
+                        Demi Journee
+                    </span>
+                </td>
+                <td>
+                    <input class="border" type="text" name="">
+                </td>
+            </tr>
+            <!-- <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                   2
+                </th>
+                <td class="py-4 px-6">
+                    1000-IRM-21
+                </td>
+                <td class="py-4 px-6">
+                    1000-IRM-21
+                </td>
+                <td class="py-4 px-6">
+                    Ziyad belghiti
+                </td>
+                <td class="py-4 px-2">
+                    <span>
+                        <input type="checkbox" name="">
+                        Present
+                    </span>
+                    <span>
+                        <input type="checkbox" name="">
+                       En retard
+                    </span>
+                    <span>
+                        <input type="checkbox" name="">
+                        Absent
+                    </span>
+                    <span>
+                        <input type="checkbox" name="">
+                        Demi Journee
+                    </span>
+                  </td>  
+                  <td>
+                    <input class="border" type="text" name="">
+                </td>
+            </tr>
+            <tr class="bg-white dark:bg-gray-800">
+                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  3
+                </th>
+                <td class="py-4 px-6">
+                    1000-IRM-21
+                </td>
+                <td class="py-4 px-6">
+                    1000-IRM-21
+                </td>
+                <td class="py-4 px-6">
+                    Matias Paul
+                </td>
+                <td class="py-4 px-2">
+
+                    <span>
+                        <input type="checkbox" name="">
+                        Present
+                    </span>
+                    <span>
+                        <input type="checkbox" name="">
+                       En retard
+                    </span>
+                    <span>
+                        <input type="checkbox" name="">
+                        Absent
+                    </span>
+                    <span>
+                        <input type="checkbox" name="">
+                        Demi Journee
+                    </span>
+                </td>
+                <td>
+                    <input class="border" type="text" name="">
+                </td>
+            </tr>
+            <tr class="bg-white dark:bg-gray-800">
+                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  4
+                </th>
+                <td class="py-4 px-6">
+                    1000-IRM-21
+                </td>
+                <td class="py-4 px-6">
+                    1000-IRM-21
+                </td>
+                <td class="py-4 px-6">
+                Jean Richard
+                </td>
+                <td class="py-4 px-2">
+
+                    <span>
+                        <input type="checkbox" name="">
+                        Present
+                    </span>
+                    <span>
+                        <input type="checkbox" name="">
+                       En retard
+                    </span>
+                    <span>
+                        <input type="checkbox" name="">
+                        Absent
+                    </span>
+                    <span>
+                        <input type="checkbox" name="">
+                        Demi Journee
+                    </span>
+                </td>
+                <td>
+                    <input class="border" type="text" name="">
+                </td>
+            </tr>
+            <tr class="bg-white dark:bg-gray-800">
+                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  5
+                </th>
+                <td class="py-4 px-6">
+                    1000-IRM-21
+                </td>
+                <td class="py-4 px-6">
+                    1000-IRM-21
+                </td>
+                <td class="py-4 px-6">
+                    Jane Doe
+                </td>
+                <td class="py-4 px-2">
+
+                    <span>
+                        <input type="checkbox" name="">
+                        Present
+                    </span>
+                    <span>
+                        <input type="checkbox" name="">
+                       En retard
+                    </span>
+                    <span>
+                        <input type="checkbox" name="">
+                        Absent
+                    </span>
+                    <span>
+                        <input type="checkbox" name="">
+                        Demi Journee
+                    </span>
+                </td>
+                <td>
+                    <input class="border" type="text" name="">
+                </td>
+            </tr> -->
+        </tbody>
+    </table>
+</div>
+
+    </div>
+
+</div>
+<button (click)="onsubmit()" type="button" class="  flex justifySelf-end rounded bg-supblue text-white p-3" >save</button>
+</div>

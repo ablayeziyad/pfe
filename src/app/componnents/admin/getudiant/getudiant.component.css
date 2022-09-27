@@ -1,0 +1,20 @@
+@import 'material-icons/iconfont/material-icons.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.cadre{
+  width: 64rem;
+  height: 100%;
+}
+@media  screen and (max-width:702){
+  .cadre{
+    width: 24rem;
+    height: 100%;
+  }
+  
+}
+
+.cadre1{
+  margin-top:-3%
+}

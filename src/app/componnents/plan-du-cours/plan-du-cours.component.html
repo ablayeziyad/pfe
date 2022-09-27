@@ -1,0 +1,126 @@
+<div class="pb-6  h-screen ">
+    
+    <div class="border-t-4 border-orange-500 bg-white w-full ">
+        <h3 class="text-xl pt-2 ml-4">Plan du cours</h3>
+        <table class=" shadow-md  text-sm text-left text-gray-500 dark:text-gray-400">
+            <thead class=" mb-4  text-xs text-gray-900 uppercase dark:text-gray-400 px-6 ">
+                <tr>
+                    <th  scope="col" class="py-3 px-6 ">
+                        Lundi
+                        09/27/2021
+                    </th>
+                    <th scope="col" class="py-3 px-6">
+                        Mardi
+                        09/27/2021
+                    </th>
+                    <th scope="col" class="py-3 px-6">
+                        Mercredi
+                        09/27/2021
+                    </th>
+                    <th scope="col" class="py-3 px-6">
+                        Jeudi
+                        09/27/2021
+                    </th>
+                    <th scope="col" class="py-3 px-6">
+                        Samedi
+                        09/27/2021
+                    </th>
+                    <th scope="col" class="py-3 px-6">
+                        Dimanche
+                        09/27/2021
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="text-black tex-xs  dark:bg-gray-800 ">
+                    <td class="py-4 px-6 text-blue-500  ">
+                        <span (click)="open(content)" class="bg-gray-100">
+                        matier:java
+                        14h AM-15hAM
+                        Salle N:A4</span>
+                    </td>
+                    <td class="py-4 px-6 ">
+                        <span (click)="open(content)" class="bg-gray-100">
+                        Ne pas 
+                        programme
+                    </span>
+                    </td>
+                
+                    <td class="py-4 px-6 ">
+                        <span (click)="open(content)" class="bg-gray-100">
+                            Ne pas 
+                            programme
+                    </span>
+                    </td>
+                    <td class="py-4 px-6 ">
+                        <span class="bg-gray-100">
+                            Ne pas 
+                            programme
+                    </span>
+                    </td>
+                    <td class="py-4 px-6 ">
+                        <span (click)="open(content)" class="bg-gray-100">
+                        N'est pas
+                         Programme
+                        </span>
+                    </td>
+                    <td class="py-4 px-6 ">
+                        <span (click)="open(content)" class="bg-gray-100">
+                       N'est pas
+                        programme
+                        </span>
+                    </td>
+                </tr>
+                
+               
+            </tbody>
+        </table>
+    </div>
+    
+    </div>
+    <ng-template #content let-modal  >
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">Plan de cours</h4>
+          <button  type="button"  class="btn-close flex items-center justify-center text-red-500 text-bold text-xs" aria-label="Close" (click)="modal.dismiss('Cross click')">x</button>
+         
+        </div>
+        <div class="modal-body ">
+          <div class="border-t-2 border-black py-3 flex justify-between">
+            <span>Class:</span>
+            <span >1ere annee IRM(Semestre 1 IRM</span>
+           
+          </div>
+          <div class="border-t-2 border-t-2 border-gray-100 py-3 ">
+            <span>Matier: java</span>
+          </div>
+          <div class="border-t-2 border-t-2 border-gray-100 py-3">
+            <span>Date: 21/11/2023</span>
+          </div>
+          <div class="border-t-2 border-t-2 border-gray-100 py-3">
+            
+          </div>
+          <div class="border-t-2 border-t-2 border-gray-100 py-3">
+            <span class="px-2">Sujet:</span>
+            <span>les Variable</span>
+            <span>les fonctions </span>
+          </div>
+          <div class="border-t-2 border-t-2 border-gray-100 py-3">
+            <span class="px-2">validation</span>
+            <span>pas valider</span>
+          </div>
+          <div class="border-t-2 border-t-2 border-gray-100 py-3 ">
+            <span class="px-2">progression</span>
+            <span>50%</span>
+          </div>
+          
+          
+          
+         
+        </div>
+      </ng-template>
+      
+      
+      <hr>
+      
+     
+    

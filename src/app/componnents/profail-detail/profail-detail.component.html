@@ -1,0 +1,47 @@
+<!-- component
+
+
+<div class="mar bg-gray-200 font-sans h-30 w-40 flex flex-row justify-center items-center">
+  <div class="card w-96 mx-auto bg-white  shadow-xl hover:shadow">
+     <img class="w-7 rounded-full  " src="assets/profil.png" alt="">
+     <p>First Name : Ziyad </p>
+     <p>Last Name : Alaoui </p>
+     <p>Email : Ziyad.alaoui@supemir.com </p>
+     <p>Telephone : 0663576532 </p>
+    </div>
+  </div>
+
+
+-->
+
+<div class="container">
+  <div class="tab">
+    <ul>
+      <li id="Profil" (click)="tabChange('Profil')">Mon profil</li>
+      <li id="Documents"(click)="tabChange('Documents')">Mes documents </li>
+      <li id="Chronologie"(click)="tabChange('Chronologie')">Chronologie </li>
+    </ul>
+  <div class="content">
+    <div class="content-value grid grid-cols-1 divide-y" *ngIf="id==='Profil'">
+      <div class="flex " ><p>Date de naissance</p>  <p class="text">{{data.dateNaissance}}<br><br></p></div>
+      <div class="flex"><p>Date d'insction</p>    <p class="text1"> 23/12/2021 <br><br></p></div>
+      <div class="flex"><p>Category</p>           <p class="text2"> IRM <br><br></p></div>
+      <div class="flex"><p>Telephone</p>    <p class="text3">{{data.telephone}} <br><br></p></div>
+      <div class="flex"><p>Nationalité</p>    <p class="text3">{{data.nationalite}} <br><br></p></div>
+      <div class="flex"><p>Ville</p>    <p class="text4">{{data.adress}}<br><br></p></div>
+      <div class="flex"><p>Email</p>    <p class="text4">{{data.username}} <br><br></p></div>
+    </div>
+
+    <div class="content-value" *ngIf="id==='Documents'">
+      <h2>Mon documents</h2>
+      <p>document d'inscription</p>
+    </div>
+
+    <div class="content-value"*ngIf="id==='Chronologie'">
+      <h2>Chronologie</h2>
+      <p>chronologie</p>
+    </div>
+
+  </div>
+  </div>
+</div>

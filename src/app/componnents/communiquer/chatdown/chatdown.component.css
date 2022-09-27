@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.h{
+
+height: 120%;
+width: 200%;
+}

@@ -1,0 +1,17 @@
+@import 'material-icons/iconfont/material-icons.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.form{
+  
+    width:200%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+.card{
+    width: 40rem;
+}

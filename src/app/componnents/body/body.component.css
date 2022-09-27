@@ -1,0 +1,19 @@
+@import 'material-icons/iconfont/material-icons.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bac{
+    background-image:url(/assets/telechargement.jfif);
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    object-fit: contain;
+
+}
+
+
+.t{
+    top: 50%;
+}

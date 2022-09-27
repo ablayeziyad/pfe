@@ -1,0 +1,67 @@
+@import 'material-icons/iconfont/material-icons.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.mar{
+  margin-left:40%
+}
+.mat{
+  margin-top:20%
+}
+.text{
+  margin-left:50%
+}
+.text1{
+  margin-left:55%
+}
+.text2{
+  margin-left:65%
+}
+.text3{
+  margin-left:62%
+}
+.text4{
+  margin-left:72%
+}
+.tab ul{
+
+padding: 10px ;
+background:rgb(226 232 240);
+display: inline-block;
+border-radius:2px;
+margin: 0;
+
+
+}
+.tab ul li {
+  display: inline-block;
+  list-style-type: none;
+  border-right: 2px solid #fff;
+  color:#fff;
+  font-size: 16px;
+  padding:0 24px;
+  font-weight:600;
+  cursor:pointer;
+  text-align:center;
+  position:relative;
+}
+.tab ul li:last-child{
+  border-right:none;
+}
+.tab ul li:hover{
+  color: #e4ff00;
+}
+.color{
+  color:#e4ff00;
+}
+.content{
+  background:rgb(255,255,255);
+  padding: 20px;
+  border: 1px solid rgb(226 232 240);
+}
+.content-value h2{
+  font-size:22px;
+  font-weight:600;
+}

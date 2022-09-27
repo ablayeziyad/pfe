@@ -1,0 +1,132 @@
+<div class="p-10 overflow-x-hidden grid grid-cols-1 sm:grid-cols-1  md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 gap-5 ">
+    <!--Card 1-->
+    <button class="flex justifySelf-end">
+      <span class="px-3">Ajouter un syllabus</span>
+      <i (click)="open(content)" class="material-icons text-red-500 inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">add</i></button>
+    <div  *ngFor="let syll of data" class=" rounded overflow-hidden shadow-lg card  ">
+      
+      <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2">{{syll.chapitre}}</div>
+        <div *ngFor="let ch of syll.sous_chapitre.split(',') let i index" class="text-gray-700 text-base flex flex-col">
+            
+            <div>
+              <span>{{ch}}</span>
+              <label for="valider">Valider</label>
+              <input type="checkbox" name="valider" >
+              <label for="valider">remaraque</label>
+              <input type="text" name="remarque" >
+            </div>
+            
+        </div>
+        
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+        <i class="material-icons text-red-500 inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">edit</i>
+        <i class="material-icons text-red-500 inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">delete</i>
+        <!-- <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span> -->
+      </div>
+    </div>
+    <!--Card 2-->
+    <!-- <div class="rounded overflow-hidden shadow-lg">
+     
+      <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2">River</div>
+        <p class="text-gray-700 text-base">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.
+        </p>
+      </div>
+      <div class="px-6 pt-4 pb-2">
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#summer</span>
+      </div>
+    </div> -->
+
+    <!--Card 3-->
+    <!-- <div class="rounded overflow-hidden shadow-lg">
+      
+      <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2">Forest</div>
+        <p class="text-gray-700 text-base">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.
+        </p>
+      </div>
+      <div class="px-6 pt-4 pb-2">
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#fall</span>
+      </div>
+    </div> -->
+  </div>
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Enregistrer un syllabus</h4>
+      <button type="button" style="display:none;" (click)="modal.dismiss('Cross click')">Annuler</button>
+      <button class="shadow-md p-1" mat-button (click)="modal.dismiss('Cross click')">Annuler</button>
+    </div>
+    <div class="modal-body ">
+      <div class=" flex justify-between py-4 class">
+        <div class="flex flex-col date relative">
+            <div>Class<span class="text-red-500">*</span></div>
+            <div >
+            <select     name="classe" class=" px-2 border px-auto " >
+                <option value="" >choisir la classe</option>
+                <option  >1IRM</option>
+                <option  >2IRM</option>
+                
+            </select>
+        </div>
+        
+        </div>
+        <div class="flex flex-col date relative">
+          <div>Matiere<span class="text-red-500">*</span></div>
+          <div >
+          <select     name="classe" class=" px-2 border px-auto " >
+              <option value="" >choisir la matiere</option>
+              <option  >JAVA</option>
+              <option  >PHP</option>
+              
+          </select>
+      </div>
+      
+      </div>
+    </div>
+       <form class="text-center" (ngSubmit)="onSubmit()">
+          <h1 class="sc-bdvvaa sc-kDThTU jnNraS hQMAwH"></h1>
+          <div style="margin-bottom:20px" class="text-red-500 text-xl sc-bdvvaa sc-jrQzUz gNcuIi jbMcpt">Veiller separer les sous chapitre par des virgule.
+
+              
+          </div>
+          <div class="py-2 text-left">
+             <input name="chapitre" [(ngModel)]="chapitre" type="text" class="bg-gray-200 border-2 border-gray-100 focus:outline-none bg-gray-100 block w-full py-2 px-4 rounded-lg focus:border-gray-700 " placeholder="Chapitre" />
+         </div>
+         <div class="py-2 text-left">
+          <textarea name="sous_chapitre" [(ngModel)]="sous_chapitre" type="text" class="bg-gray-200 border-2 border-gray-100 focus:outline-none bg-gray-100 block w-full py-2 px-4 rounded-lg focus:border-gray-700 " placeholder="Sous-chapitre" ></textarea>
+      </div>
+          
+          <div class=" flex items-center py-4 text-left">
+            <label for="validation">Validation</label>
+              <input name="validation" [(ngModel)]="validation" type="checkbox" class="bg-gray-200 border-2 border-gray-100 focus:outline-none bg-gray-100 block w-full py-2 px-4 rounded-lg focus:border-gray-700 "  />
+          </div>
+          <div class="py-2 text-left">
+              <input name="progression" [(ngModel)]="progression" type="text" class="bg-gray-200 border-2 border-gray-100 focus:outline-none bg-gray-100 block w-full py-2 px-4 rounded-lg focus:border-gray-700 " placeholder="Progression" />
+          </div>
+          <!-- <div class="py-2 text-left">
+             <input name="password" [(ngModel)]="password" type="password" class="bg-gray-200 border-2 border-gray-100 focus:outline-none bg-gray-100 block w-full py-2 px-4 rounded-lg focus:border-gray-700 " placeholder="confirmer le mot de pass" />
+         </div> -->
+       
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="submit" class=" bg-supblue text-white p-2 btn btn-outline-dark" (click)="onSubmit()">Save</button>
+    </div>
+  </ng-template>
+  
+ 
+  <hr>
+  
+  <!-- <pre>{{ closeResult }}</pre> -->
+

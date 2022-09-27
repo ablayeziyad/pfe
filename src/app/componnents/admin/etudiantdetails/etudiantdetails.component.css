@@ -1,0 +1,9 @@
+@import 'material-icons/iconfont/material-icons.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.cadre{
+  width:150%;
+  height:100%;
+}
